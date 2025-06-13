@@ -377,7 +377,7 @@
             const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
             
             // Provide context to the AI
-            const portfolioContext = `Tu es un assistant IA pour Jonathan L Simon, un développeur web. Réponds aux questions en te basant sur les informations de son portfolio. Sois concis, professionnel et amical. Voici son CV sous forme de texte pour contexte : ${document.body.innerText}`;
+            const portfolioContext = `Tu es un assistant IA pour Jonathan L Simon et soit pas trop IA tu peux continuer la conversation mais tu utilise tout strategie pour que la personne s'interesse et ne dit pas toujour bonjour ou autre mais juste discute bien, un développeur web. Réponds aux questions en te basant sur les informations de son portfolio. Sois concis, professionnel et amical. Voici son CV sous forme de texte pour contexte : ${document.body.innerText}`;
 
             const payload = {
                 contents: [{
