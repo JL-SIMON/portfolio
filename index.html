@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jonathan L Simon - Développeur Web Full Stack</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a192f; /* Dark Navy */
+            color: #ccd6f6; /* Light Slate */
+        }
+        .accent-color {
+            color: #64ffda; /* Light Teal */
+        }
+        .bg-accent {
+            background-color: #64ffda;
+        }
+        .btn {
+            @apply border border-[#64ffda] text-[#64ffda] rounded-md px-6 py-3 font-medium transition-all duration-300 hover:bg-[#64ffda] hover:bg-opacity-10;
+        }
+        .section-heading {
+            @apply text-3xl md:text-4xl font-bold text-gray-200 mb-8 flex items-center;
+        }
+        .section-heading::after {
+            content: '';
+            @apply block h-[1px] w-full max-w-xs bg-gray-600 ml-4;
+        }
+        .card {
+            @apply bg-[#112240] p-6 rounded-lg shadow-lg transition-transform duration-300 hover:-translate-y-2;
+        }
+        /* Style for scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a192f;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #233554;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #303C55;
+        }
+        .loader {
+            border: 3px solid #f3f3f330;
+            border-top: 3px solid #64ffda;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header / Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-[#0a192f] bg-opacity-80 backdrop-blur-sm shadow-md">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold accent-color">JLS</a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#about" class="hover:accent-color transition-colors duration-300">À propos</a>
+                <a href="#experience" class="hover:accent-color transition-colors duration-300">Parcours</a>
+                <a href="#projects" class="hover:accent-color transition-colors duration-300">Projets</a>
+                <a href="#contact" class="hover:accent-color transition-colors duration-300">Contact</a>
+            </div>
+            <a href="cv_jonathan_simon.pdf" target="_blank" class="btn hidden md:block">Mon CV</a>
+             <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-2xl">
+                ☰
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 flex flex-col items-center space-y-4">
+            <a href="#about" class="hover:accent-color transition-colors duration-300">À propos</a>
+            <a href="#experience" class="hover:accent-color transition-colors duration-300">Parcours</a>
+            <a href="#projects" class="hover:accent-color transition-colors duration-300">Projets</a>
+            <a href="#contact" class="hover:accent-color transition-colors duration-300">Contact</a>
+            <a href="cv_jonathan_simon.pdf" target="_blank" class="btn w-full text-center mt-2">Mon CV</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6">
+
+        <!-- Section 1: Hero -->
+        <section id="hero" class="min-h-screen flex flex-col justify-center">
+            <p class="text-lg accent-color mb-4">Bonjour, je m'appelle</p>
+            <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold text-gray-100">Jonathan L Simon.</h1>
+            <h2 class="text-3xl sm:text-5xl md:text-6xl font-extrabold text-gray-400 mt-2">Je construis pour le web.</h2>
+            <p class="mt-6 max-w-2xl text-gray-400">
+                Développeur web full stack basé à Madagascar, passionné par la création d'expériences digitales performantes et intuitives. Je transforme des idées en solutions web robustes et évolutives, avec une attention particulière pour le design et l'expérience utilisateur.
+            </p>
+            <div class="mt-8">
+                <a href="#projects" class="btn text-xl">Voir mes réalisations</a>
+            </div>
+        </section>
+
+        <!-- Section 2: À Propos -->
+        <section id="about" class="py-24">
+            <h2 class="section-heading">À Propos de moi</h2>
+            <div class="grid md:grid-cols-5 gap-10">
+                <div class="md:col-span-3 text-gray-400 space-y-4 text-lg">
+                    <p>
+                        Depuis mon plus jeune âge, j'ai été fasciné par la capacité du numérique à connecter les gens et à simplifier la vie. Cette passion m'a naturellement conduit vers le développement web. Titulaire d'une **Licence en Développement Web**, j'ai acquis une solide expérience grâce à des stages, des projets freelances et une veille technologique constante.
+                    </p>
+                    <p>
+                        Basé à Sambava, Madagascar, mais disponible à l'international, j'aime relever des défis techniques et collaborer avec des équipes pour donner vie à des projets ambitieux. Mon objectif est de créer des applications qui sont non seulement fonctionnelles, mais aussi agréables à utiliser.
+                    </p>
+                     <p>
+                        Voici quelques technologies avec lesquelles j'ai récemment travaillé :
+                    </p>
+                    <ul class="grid grid-cols-2 gap-2 text-sm">
+                        <li class="flex items-center"><span class="accent-color mr-2">▹</span>JavaScript (ES6+)</li>
+                        <li class="flex items-center"><span class="accent-color mr-2">▹</span>React.js & Vue.js</li>
+                        <li class="flex items-center"><span class="accent-color mr-2">▹</span>Node.js</li>
+                        <li class="flex items-center"><span class="accent-color mr-2">▹</span>PHP & Laravel</li>
+                        <li class="flex items-center"><span class="accent-color mr-2">▹</span>Tailwind CSS</li>
+                        <li class="flex items-center"><span class="accent-color mr-2">▹</span>WordPress</li>
+                    </ul>
+                </div>
+                <div class="md:col-span-2 flex justify-center items-start">
+                    <div class="w-64 h-64 rounded-lg bg-[#112240] relative group">
+                        <div class="absolute inset-0 border-2 border-[#64ffda] rounded-lg transition-transform duration-300 group-hover:translate-x-2 group-hover:translate-y-2"></div>
+                        <img src="img/photodeprofil.png" alt="Photo de Jonathan L Simon" class="w-full h-full object-cover rounded-lg absolute inset-0 z-10" onerror="this.onerror=null;this.src='https://placehold.co/300x300/112240/ccd6f6?text=JLS';">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Expérience et Formation -->
+        <section id="experience" class="py-24">
+            <h2 class="section-heading">Mon Parcours</h2>
+            <div class="relative border-l-2 border-gray-600 pl-8 space-y-12">
+                 <!-- Timeline Item -->
+                <div class="relative">
+                    <div class="absolute -left-[42px] top-1.5 w-4 h-4 rounded-full bg-accent"></div>
+                    <p class="accent-color text-sm">2022 - 2025</p>
+                    <h3 class="text-xl font-bold text-gray-200 mt-1">Licence en Développement Web</h3>
+                    <p class="text-gray-400 font-medium">Université de Toamasina (Centre de Sambava)</p>
+                    <p class="text-gray-500 mt-2">Formation complète sur les fondamentaux du web : HTML/CSS, JavaScript, PHP, SQL, Python, SEO, et UX/UI Design.</p>
+                </div>
+                 <!-- Timeline Item -->
+                 <div class="relative">
+                    <div class="absolute -left-[42px] top-1.5 w-4 h-4 rounded-full bg-accent"></div>
+                    <p class="accent-color text-sm">Juin 2023 - Sept 2023</p>
+                    <h3 class="text-xl font-bold text-gray-200 mt-1">Stagiaire Développeur Web Full Stack</h3>
+                    <p class="text-gray-400 font-medium">Agence Digitale Vohitra</p>
+                    <p class="text-gray-500 mt-2">Développement de sites dynamiques en PHP/MySQL, création de thèmes WordPress sur mesure et optimisation SEO.</p>
+                </div>
+                 <!-- Timeline Item -->
+                <div class="relative">
+                    <div class="absolute -left-[42px] top-1.5 w-4 h-4 rounded-full bg-accent"></div>
+                    <p class="accent-color text-sm">2022 - Aujourd'hui</p>
+                    <h3 class="text-xl font-bold text-gray-200 mt-1">Freelance - Développeur Front-end</h3>
+                    <p class="text-gray-400 font-medium">Auto-entrepreneur</p>
+                    <p class="text-gray-500 mt-2">Création de sites vitrines et landing pages pour des clients locaux et internationaux en utilisant React.js, Bootstrap et TailwindCSS.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Projets -->
+        <section id="projects" class="py-24">
+            <h2 class="section-heading">Quelques réalisations</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Project 1 -->
+                <div class="card">
+                    <div class="flex justify-between items-center mb-4">
+                        <svg class="w-10 h-10 accent-color" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path></svg>
+                        <div class="space-x-4">
+                            <a href="#" class="text-gray-400 hover:accent-color transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
+                            <a href="#" class="text-gray-400 hover:accent-color transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-200 mb-2">E-commerce Local</h3>
+                    <p class="text-gray-400 mb-4">Plateforme pour permettre aux artisans de Sambava de vendre leurs produits en ligne. Projet de fin de licence.</p>
+                    <div class="flex flex-wrap text-xs text-gray-500">
+                        <span class="mr-2 mb-2">React.js</span>
+                        <span class="mr-2 mb-2">Node.js</span>
+                        <span class="mr-2 mb-2">MongoDB</span>
+                        <span class="mr-2 mb-2">Express</span>
+                    </div>
+                </div>
+                 <!-- Project 2 -->
+                <div class="card">
+                    <div class="flex justify-between items-center mb-4">
+                        <svg class="w-10 h-10 accent-color" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path></svg>
+                        <div class="space-x-4">
+                            <a href="#" class="text-gray-400 hover:accent-color transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
+                            <a href="#" class="text-gray-400 hover:accent-color transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-200 mb-2">Portfolio Personnel</h3>
+                    <p class="text-gray-400 mb-4">Site web présentant mes compétences, réalisations et services freelance (celui que vous consultez actuellement).</p>
+                    <div class="flex flex-wrap text-xs text-gray-500">
+                        <span class="mr-2 mb-2">HTML5</span>
+                        <span class="mr-2 mb-2">TailwindCSS</span>
+                        <span class="mr-2 mb-2">JavaScript</span>
+                    </div>
+                </div>
+                 <!-- Project 3 -->
+                <div class="card">
+                    <div class="flex justify-between items-center mb-4">
+                        <svg class="w-10 h-10 accent-color" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path></svg>
+                        <div class="space-x-4">
+                            <a href="#" class="text-gray-400 hover:accent-color transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
+                            <a href="#" class="text-gray-400 hover:accent-color transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-200 mb-2">Application de Gestion de Tâches</h3>
+                    <p class="text-gray-400 mb-4">Projet personnel pour créer un "To-Do List" simple et efficace avec des fonctionnalités de persistance des données.</p>
+                    <div class="flex flex-wrap text-xs text-gray-500">
+                        <span class="mr-2 mb-2">Vue.js</span>
+                        <span class="mr-2 mb-2">Firebase</span>
+                        <span class="mr-2 mb-2">Bootstrap</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Contact -->
+        <section id="contact" class="py-24 text-center">
+            <h2 class="text-2xl font-medium accent-color mb-2">Et après ?</h2>
+            <h3 class="text-4xl md:text-5xl font-bold text-gray-200 mb-4">Entrons en contact</h3>
+            <p class="max-w-xl mx-auto text-gray-400 mb-8">
+                Je suis actuellement ouvert à de nouvelles opportunités de mission freelance et toujours partant pour discuter de projets innovants. N'hésitez pas à me contacter, je vous répondrai rapidement !
+            </p>
+            <a href="mailto:jonathan.simon@email.com" class="btn text-xl">Dites-moi bonjour !</a>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center py-6 text-gray-500 text-sm">
+        <p>Conçu & Développé par Jonathan L Simon</p>
+        <div class="flex justify-center space-x-4 mt-4">
+            <a href="#" class="hover:accent-color"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
+             <a href="#" class="hover:accent-color"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+        </div>
+    </footer>
+
+    <!-- AI Chat Assistant -->
+    <div id="ai-chat-widget" class="fixed bottom-6 right-6 z-50">
+        <button id="ai-chat-button" class="bg-accent text-[#0a192f] w-16 h-16 rounded-full flex items-center justify-center shadow-lg transform hover:scale-110 transition-transform">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+        </button>
+        <div id="ai-chat-modal" class="hidden absolute bottom-20 right-0 w-80 sm:w-96 bg-[#112240] rounded-lg shadow-2xl border border-gray-700 flex flex-col">
+            <div id="ai-chat-messages" class="flex-1 p-4 h-80 overflow-y-auto">
+                <!-- AI Welcome Message -->
+                <div class="flex mb-3">
+                    <div class="bg-gray-700 text-white p-3 rounded-lg rounded-bl-none">
+                        <p class="text-sm">Bonjour ! Je suis l'assistant IA de Jonathan. Posez-moi une question sur son profil ou ses compétences.</p>
+                    </div>
+                </div>
+            </div>
+            <div id="ai-chat-questions" class="p-4 border-t border-gray-700">
+                 <div class="flex flex-wrap gap-2 mb-3">
+                    <button data-question="Quelle est sa plus grande force ?" class="text-xs p-2 bg-gray-700 hover:bg-gray-600 rounded-full transition-colors">Sa plus grande force ?</button>
+                    <button data-question="Où a-t-il étudié ?" class="text-xs p-2 bg-gray-700 hover:bg-gray-600 rounded-full transition-colors">Ses études ?</button>
+                    <button data-question="Est-il disponible ?" class="text-xs p-2 bg-gray-700 hover:bg-gray-600 rounded-full transition-colors">Disponibilité ?</button>
+                 </div>
+                 <form id="ai-chat-form" class="flex items-center gap-2">
+                    <input id="ai-chat-input" type="text" placeholder="Posez votre question..." class="w-full bg-gray-700 border-gray-600 rounded-lg p-2 focus:ring-accent-color focus:border-accent-color text-sm">
+                    <button type="submit" class="bg-accent text-[#0a192f] p-2 rounded-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-send"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                    </button>
+                 </form>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        // Mobile Menu Logic
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // AI Chat Widget Logic
+        const aiChatButton = document.getElementById('ai-chat-button');
+        const aiChatModal = document.getElementById('ai-chat-modal');
+        const aiChatMessages = document.getElementById('ai-chat-messages');
+        const aiChatForm = document.getElementById('ai-chat-form');
+        const aiChatInput = document.getElementById('ai-chat-input');
+        const questionButtons = document.querySelectorAll('#ai-chat-questions button[data-question]');
+
+        aiChatButton.addEventListener('click', () => {
+            aiChatModal.classList.toggle('hidden');
+        });
+
+        // Handle predefined question clicks
+        questionButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const question = button.dataset.question;
+                aiChatInput.value = question;
+                aiChatForm.dispatchEvent(new Event('submit'));
+            });
+        });
+        
+        // Handle form submission
+        aiChatForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const userQuestion = aiChatInput.value.trim();
+            if (!userQuestion) return;
+
+            displayUserMessage(userQuestion);
+            aiChatInput.value = '';
+            
+            displayTypingIndicator();
+
+            try {
+                const aiResponse = await getGeminiResponse(userQuestion);
+                removeTypingIndicator();
+                displayAiMessage(aiResponse);
+            } catch (error) {
+                removeTypingIndicator();
+                displayAiMessage("Désolé, une erreur s'est produite. Veuillez réessayer plus tard.");
+                console.error("Error fetching Gemini response:", error);
+            }
+        });
+
+        function displayUserMessage(message) {
+            const userMessage = document.createElement('div');
+            userMessage.classList.add('flex', 'justify-end', 'mb-3');
+            userMessage.innerHTML = `<div class="bg-accent text-[#0a192f] p-3 rounded-lg rounded-br-none max-w-xs"><p class="text-sm">${message}</p></div>`;
+            aiChatMessages.appendChild(userMessage);
+            scrollToBottom();
+        }
+
+        function displayAiMessage(message) {
+            const aiMessage = document.createElement('div');
+            aiMessage.classList.add('flex', 'mb-3');
+            aiMessage.innerHTML = `<div class="bg-gray-700 text-white p-3 rounded-lg rounded-bl-none max-w-xs"><p class="text-sm">${message}</p></div>`;
+            aiChatMessages.appendChild(aiMessage);
+            scrollToBottom();
+        }
+        
+        function displayTypingIndicator() {
+            const typingIndicator = document.createElement('div');
+            typingIndicator.id = 'typing-indicator';
+            typingIndicator.classList.add('flex', 'mb-3');
+            typingIndicator.innerHTML = `<div class="bg-gray-700 text-white p-3 rounded-lg rounded-bl-none flex items-center space-x-2"><div class="loader"></div><p class="text-sm">Réfléchit...</p></div>`;
+            aiChatMessages.appendChild(typingIndicator);
+            scrollToBottom();
+        }
+
+        function removeTypingIndicator() {
+            const indicator = document.getElementById('typing-indicator');
+            if (indicator) {
+                indicator.remove();
+            }
+        }
+
+        function scrollToBottom() {
+            aiChatMessages.scrollTop = aiChatMessages.scrollHeight;
+        }
+
+        // --- Gemini API Integration ---
+        async function getGeminiResponse(prompt) {
+            // IMPORTANT: Leave the API key empty. It will be automatically handled.
+            const apiKey = ""; 
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+            
+            // Provide context to the AI
+            const portfolioContext = `Tu es un assistant IA pour Jonathan L Simon, un développeur web. Réponds aux questions en te basant sur les informations de son portfolio. Sois concis, professionnel et amical. Voici son CV sous forme de texte pour contexte : ${document.body.innerText}`;
+
+            const payload = {
+                contents: [{
+                    role: "user",
+                    parts: [{ text: portfolioContext + "\n\nQuestion du visiteur: " + prompt }]
+                }],
+                generationConfig: {
+                    temperature: 0.7,
+                    topK: 1,
+                    topP: 1,
+                    maxOutputTokens: 256,
+                }
+            };
+            
+            const response = await fetch(apiUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+
+            if (!response.ok) {
+                throw new Error(`API request failed with status ${response.status}`);
+            }
+
+            const result = await response.json();
+            
+            if (result.candidates && result.candidates.length > 0 &&
+                result.candidates[0].content && result.candidates[0].content.parts &&
+                result.candidates[0].content.parts.length > 0) {
+                return result.candidates[0].content.parts[0].text;
+            } else {
+                console.warn("Unexpected API response structure:", result);
+                if (result.promptFeedback && result.promptFeedback.blockReason) {
+                    return `Je ne peux pas répondre à cette question. Raison : ${result.promptFeedback.blockReason}`;
+                }
+                return "Je n'ai pas pu générer de réponse. Veuillez reformuler votre question.";
+            }
+        }
+
+
+        // Fade-in sections on scroll
+        const sections = document.querySelectorAll('section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        sections.forEach(section => {
+            section.style.opacity = '0';
+            section.style.transition = 'opacity 0.8s ease-in-out';
+            observer.observe(section);
+        });
+
+        // Add CSS for fade-in effect
+        const style = document.createElement('style');
+        style.innerHTML = `
+            .fade-in {
+                opacity: 1 !important;
+            }
+        `;
+        document.head.appendChild(style);
+
+    </script>
+</body>
+</html>
